@@ -37,6 +37,7 @@
                     <div class="checkbox">
                         <label><input type="checkbox"> 记住填写的内容 </label>
                     </div>
+                    <div class="btn btn-primary" v-on:click="sendData">提交发送</div>
                 </form>
                 <br>
                         ----------- 测试预览 ----------
@@ -45,7 +46,7 @@
                         <p>content: {{ contentString }}</p>
                 <br>
 
-                <div class="btn btn-primary" v-on:click="sendData">提交发送</div>
+                
             <br><br>
             </div>
             <div class="panel panel-default">
@@ -90,9 +91,6 @@
         </div>
     </footer>
 
-</body>
-
-</html>
 <script>
     // vue官网： https://cn.vuejs.org/v2/guide/
     // 初始化Vue
@@ -114,6 +112,7 @@
                 console.log(error);  // 函数执行过程中，如果出错，就会直接跳到这里，浏览器conosle打印错误日志
               });
           },
+          
           sendData: function() {  // 定义一个函数，axios post 出去三个参数，拿到response 后alert 结果，这里在 html 中绑定了一个 click 事件，一旦用户click按钮，就会触发这个函数执行
             axios.post('https://js.xinshengdaxue.com/api/v1/learnJS/sayToMe', {
               name: app.nameString, // 拿到表单的name字段
@@ -132,3 +131,7 @@
       });
     app.fetchData(); // 不同于绑定 click 事件，直接执行函数，拿到数据并在html中使用
 </script>
+
+</body>
+
+</html>
